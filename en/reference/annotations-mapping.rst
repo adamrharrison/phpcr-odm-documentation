@@ -69,6 +69,10 @@ Optional attributes:
    creation. Note that if this field is present, it overwrites the same field
    from the anchestor documents so you have to repeat mixins you want to keep
    if you add a mixins field.
+-  **childClasses**: List of valid child classes (if empty any classes are
+  permitted).
+-  **isLeaf**: If the document should act as a leaf (i.e. it can have no
+  children). Mutually exclusive with ``childClasses``.
 
 Minimal example:
 
@@ -95,6 +99,7 @@ Full example:
     *   referenceable=true,
     *   translator="child",
     *   mixins={"mix:created", "mix:lastModified"}
+        childClasses={"SomeDocument", "AnotherDocument"}
     * )
     */
    class SomeDocument

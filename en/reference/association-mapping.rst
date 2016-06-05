@@ -80,6 +80,66 @@ Some sample mappings:
              filter: "a*"
              fetchDepth: 3
 
+Child restriction
+~~~~~~~~~~~~~~~~~
+
+You may either specify which classes may be children of a document or that a
+document can have no children (i.e. that it be a leaf node).
+
+.. configuration-block::
+
+    .. code-block:: php
+
+        <?php
+        /** @Document(childClasses={"Article", "Page"}) **/
+        class ContentFolder
+        {
+            // ...
+        }
+
+    .. code-block:: xml
+
+        <doctrine-mapping>
+            <document class="ContentFolder">
+                <child-class>Article</child-class>
+                <child-class>Page</child-class>
+                <!-- ... -->
+            </document>
+        </doctrine-mapping>
+
+    .. code-block:: yaml
+
+        ContentFolder:
+            # ...
+            child_classes: [ "Article", "Page" ]
+
+To specify that a document can have no children:
+
+.. configuration-block::
+
+    .. code-block:: php
+
+        <?php
+        /** @Document(isLeaf=true) **/
+        class LeafDocument
+        {
+            // ...
+        }
+
+    .. code-block:: xml
+
+        <doctrine-mapping>
+            <document class="LeafDocument" is-leaf="true">
+                <!-- ... -->
+            </document>
+        </doctrine-mapping>
+
+    .. code-block:: yaml
+
+        MyPersistentClass:
+            # ...
+            is_leaf: true
+
 References
 ----------
 

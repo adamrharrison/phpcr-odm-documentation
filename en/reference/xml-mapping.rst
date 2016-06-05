@@ -14,7 +14,7 @@ The following example implements all of the possible XML mapping elements:
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="https://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
 
-        <document name="Acme\Document\Example" referenceable="true" translator="attribute" versionable="simple">
+        <document name="Acme\Document\Example" referenceable="true" translator="attribute" versionable="simple" is-leaf="false">
             <!-- Identification -->
             <uuid name="uuid" />
             <id name="path" />
@@ -25,6 +25,10 @@ The following example implements all of the possible XML mapping elements:
             <children name="children" />
             <child name="block" node-name="block" />
             <depth name="depth" />
+
+            <!-- Valid child classes !-->
+            <child-class>Example</child-class>
+            <child-class>AnotherExample</child-class>
 
             <!-- PHPCR -->
             <node name="phpcrNode" />
